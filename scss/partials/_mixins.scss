@@ -1,0 +1,53 @@
+$fix-mqs: false !default;
+
+@mixin font-size($sizeValue: $base-font-size){
+    font-size: $sizeValue + px;
+    font-size: ($sizeValue * 0.625 / 10)  + rem;
+}
+
+@mixin respond-min($width) {
+    // If we're outputting for a fixed media query set...
+    @if $fix-mqs {
+        // ...and if we should apply these rules...
+        @if $fix-mqs >= $width {
+            // ...output the content the user gave us.
+            @content;
+        }
+    }
+    @else {
+        // Otherwise, output it using a regular media query
+        @media screen and (min-width: ($width) / 16 + "em") {
+            @content;
+        }
+    }
+}
+
+// USAGE: @include respond-max($desktop-960) {...}
+@mixin respond-max($width) {
+    @if $fix-mqs {
+        @if $fix-mqs < $width {
+            @content;
+        }
+    }
+    @else {
+        @media screen and (max-width: ($width - 1) / 16 + "em") {
+            @content;
+        }
+    }
+}
+
+
+// USAGE: @include respond-range($tablet-568, $desktop-960) {...}
+@mixin respond-range($from, $to) {
+    @media only screen and (min-width: ($from) / 16 + "em") and (max-width: ($to - 1) / 16 + "em") { @content; }
+}
+
+@mixin hidpi-media-query ($ratio: 1.5) {
+    @media only screen and (-webkit-min-device-pixel-ratio: $ratio),
+    only screen and (min--moz-device-pixel-ratio: $ratio),
+    only screen and (-o-min-device-pixel-ratio: $ratio/1),
+    only screen and (min-resolution: (96 * $ratio) + dpi),
+    only screen and (min-resolution: $ratio + dppx) {
+      @content;
+    }
+}

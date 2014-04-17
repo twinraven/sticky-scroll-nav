@@ -1,0 +1,15 @@
+/* ==========================================================================
+   Placeholders
+   ========================================================================== */
+
+%spritesheet {
+    background-image: url(#{$img-path}spritesheet.png);
+    background-repeat: no-repeat;
+    @include background-size(250px 250px);
+
+    @include hidpi-media-query {
+        .backgroundsize & {
+        background-image: url(#{$img-path}spritesheet@2x.png);
+        }
+    }
+}
