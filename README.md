@@ -1,7 +1,5 @@
-sticky-scroll-nav
-=================
-
 Sticky Scroll Nav demo
+=================
 
 Key functionality:
 
