@@ -1,5 +1,4 @@
 $file-url:              "../" !default;
-$font-path:             "#{$file-url}fonts/western-european/";
 $img-path:              "#{$file-url}img/";
 
 $cols-1:                320;
@@ -8,19 +7,10 @@ $cols-2:                640;
 $cols-3:                960;
 $cols-4:                1280;
 
-$gridCol:               304px;
-$gridRow:               250px;
-$gridMargin:            9px;
-
 $sidenav-width:         250px;
 
 $nav-fade-ms:           0.4s;
 $sidenav-anim-ms:       0.25s;
-
-$font-nivea-bold:       "NiveaBold", Arial, sans-serif;
-$font-nivea-medium:     "NiveaMedium", Arial, sans-serif;
-$font-nivea-book:       "NiveaBook", Arial, sans-serif;
-$font-nivea-light:      "NiveaLight", Arial, sans-serif;
 
 $colour-blue-light:     #385df6;
 $colour-blue-dark:      #160073;

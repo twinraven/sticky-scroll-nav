@@ -2,24 +2,6 @@
    Navigation
    ========================================================================== */
 
-// Logo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//
-.logo {
-    left: 10px;
-    position: absolute;
-    top: 10px;
-}
-
-.logo img {
-    height: 30px;
-    width: auto;
-
-    @include respond-min($cols-2) {
-        height: auto;
-    }
-}
-
-
 // Navigation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
 nav  {

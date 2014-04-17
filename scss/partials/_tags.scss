@@ -30,22 +30,14 @@ body {
 .content {
     @include box-sizing(border-box);
     height: 100%;
-}
-
-#tumblr-content {
-    display: none;
+    margin: 100px auto 0;
+    max-width: 1000px;
+    padding: 0 10px;
 }
 
 h1, h2, h3 {
     font-family: $font-nivea-bold;
     text-transform: uppercase;
-}
-
-.feed-wrapper {
-    background: #eee;
-    padding: 0 0 60px;
-    position: relative;
-    text-align: center;
 }
 
 a {
@@ -59,10 +51,4 @@ a {
         color: $colour-blue-dark;
         text-decoration: none;
     }
-}
-
-.content {
-    margin: 100px auto 0;
-    max-width: 1000px;
-    padding: 0 10px;
 }
