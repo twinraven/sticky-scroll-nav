@@ -5,8 +5,8 @@ html {
 }
 
 body, html {
-    background: #ccc;
-    color: #333;
+    background: #333;
+    color: #fff;
     font-family: Arial, Verdana, sans-serif;
     height: 100%;
     line-height: 1.8;
@@ -29,15 +29,20 @@ body {
 
 .content {
     @include box-sizing(border-box);
-    height: 100%;
-    margin: 100px auto 0;
+    margin: 100px auto;
     max-width: 1000px;
+    overflow: hidden;
     padding: 0 10px;
+    text-align: justify;
 }
 
 h1, h2, h3 {
-    font-family: $font-nivea-bold;
+    font-weight: bold;
     text-transform: uppercase;
+}
+
+p {
+    margin: 0 0 30px;
 }
 
 a {

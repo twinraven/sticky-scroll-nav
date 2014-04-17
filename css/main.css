@@ -595,24 +595,6 @@ textarea {
    Helper classes
    ========================================================================== */
 /*
- * Image replacement
- */
-.ir {
-  background-color: transparent;
-  border: 0;
-  overflow: hidden;
-  /* IE 6/7 fallback */
-  *text-indent: -9999px;
-}
-
-.ir:before {
-  content: "";
-  display: block;
-  width: 0;
-  height: 150%;
-}
-
-/*
  * Hide from both screenreaders and browsers: h5bp.com/u
  */
 .hidden {
@@ -712,8 +694,8 @@ html {
 }
 
 body, html {
-  background: #ccc;
-  color: #333;
+  background: #333;
+  color: #fff;
   font-family: Arial, Verdana, sans-serif;
   height: 100%;
   line-height: 1.8;
@@ -741,23 +723,20 @@ body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  height: 100%;
-}
-
-#tumblr-content {
-  display: none;
+  margin: 100px auto;
+  max-width: 1000px;
+  overflow: hidden;
+  padding: 0 10px;
+  text-align: justify;
 }
 
 h1, h2, h3 {
-  font-family: "NiveaBold", Arial, sans-serif;
+  font-weight: bold;
   text-transform: uppercase;
 }
 
-.feed-wrapper {
-  background: #eee;
-  padding: 0 0 60px;
-  position: relative;
-  text-align: center;
+p {
+  margin: 0 0 30px;
 }
 
 a {
@@ -775,31 +754,9 @@ a:hover, a:focus {
   text-decoration: none;
 }
 
-.content {
-  margin: 100px auto 0;
-  max-width: 1000px;
-  padding: 0 10px;
-}
-
 /* ==========================================================================
    Navigation
    ========================================================================== */
-.logo {
-  left: 10px;
-  position: absolute;
-  top: 10px;
-}
-
-.logo img {
-  height: 30px;
-  width: auto;
-}
-@media screen and (min-width: 40em) {
-  .logo img {
-    height: auto;
-  }
-}
-
 nav ul {
   display: block;
   list-style: none;
