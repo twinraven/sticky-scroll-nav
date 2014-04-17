@@ -1,0 +1,68 @@
+// Initial setup ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+html {
+    position: relative;
+}
+
+body, html {
+    background: #ccc;
+    color: #333;
+    font-family: Arial, Verdana, sans-serif;
+    height: 100%;
+    line-height: 1.8;
+}
+
+body {
+    -webkit-font-smoothing:antialiased;
+    @include font-size(14);
+}
+
+.page--home {
+    background: transparent;
+}
+
+.container {
+    @include box-sizing(border-box);
+    padding: 0;
+    height: 100%;
+}
+
+.content {
+    @include box-sizing(border-box);
+    height: 100%;
+}
+
+#tumblr-content {
+    display: none;
+}
+
+h1, h2, h3 {
+    font-family: $font-nivea-bold;
+    text-transform: uppercase;
+}
+
+.feed-wrapper {
+    background: #eee;
+    padding: 0 0 60px;
+    position: relative;
+    text-align: center;
+}
+
+a {
+    color: $colour-blue-strong;
+    display: inline-block;
+    text-decoration: none;
+    @include transition(all 0.15s);
+
+    &:hover,
+    &:focus {
+        color: $colour-blue-dark;
+        text-decoration: none;
+    }
+}
+
+.content {
+    margin: 100px auto 0;
+    max-width: 1000px;
+    padding: 0 10px;
+}

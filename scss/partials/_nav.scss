@@ -1,0 +1,257 @@
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+// Logo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+.logo {
+    left: 10px;
+    position: absolute;
+    top: 10px;
+}
+
+.logo img {
+    height: 30px;
+    width: auto;
+
+    @include respond-min($cols-2) {
+        height: auto;
+    }
+}
+
+
+// Navigation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+nav  {
+    ul {
+        display: block;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        display: block;
+        margin: 0;
+        padding: 0;
+
+        @include respond-min($cols-2) {
+            display: inline-block;
+        }
+    }
+
+    a {
+        color: #009;
+        display: block;
+        font-family: Arial, Verdana, sans-serif;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+}
+
+.navbar {
+    display: block;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    z-index: 10;
+}
+
+.navbar--main {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    left: 0;
+    min-height: 55px;
+    position: absolute;
+    top: 0;
+    @include transition-property(transform, background-color, box-shadow);
+    @include transition-duration($sidenav-anim-ms, $nav-fade-ms, $nav-fade-ms);
+
+    .js & {
+        position: absolute;
+    }
+
+    &.is-fixed {
+        position: fixed;
+    }
+
+    &.is-at-top {
+        background-color: transparent;
+        box-shadow: none;
+
+        .nav-main a {
+            color: #fff;
+            font-family: Arial, Verdana, sans-serif;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+        }
+    }
+
+    &.no-trans {
+        @include transition-property(transform);
+        @include transition-duration($sidenav-anim-ms);
+    }
+
+    .nav-main {
+        display: none;
+
+        @include respond-min($cols-2) {
+            background: none;
+            box-shadow: none;
+            @include box-sizing(border-box);
+            display: block;
+            height: auto;
+            opacity: 1;
+            padding: 16px 0;
+            text-align: center;
+            width: 100%;
+
+            .csstransforms & {
+                @include transform(none);
+            }
+
+            ul {
+                display: inline-block;
+                margin: 0 10px;
+                position: relative;
+                vertical-align: middle;
+            }
+
+            a {
+                color: #000;
+                @include font-size(20);
+                padding: 0 15px;
+                @include transition(color $nav-fade-ms);
+            }
+        }
+    }
+
+    @include respond-min($cols-2) {
+        min-height: 70px;
+    }
+}
+
+.inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+    position: relative;
+}
+
+.nav-main-link {
+    @extend %spritesheet;
+    background-position: -139px -3px;
+    display: block;
+    height: 20px;
+    margin-top: 18px;
+    overflow: hidden;
+    position: absolute;
+    right: 10px;
+    text-indent: -9999px;
+    width: 20px;
+
+    &:before {
+        @extend %spritesheet;
+        background-position: -160px -3px;
+        content: "";
+        display: block;
+        height: 20px;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        @include transition(opacity $nav-fade-ms);
+        width: 20px;
+    }
+    .is-at-top &:before {
+        opacity: 1;
+    }
+
+    @include respond-min($cols-2) {
+        display: none;
+    }
+}
+
+.nav-main-mobile,
+.content {
+    @include transition-property(transform);
+    @include transition-duration(0.2s);
+
+    @include respond-min($cols-2) {
+        @include transition(none);
+    }
+}
+
+.nav-main-mobile {
+    background: #fff;
+    @include box-sizing(border-box);
+    box-shadow: inset 20px 0 50px rgba(0,0,0,0.05);
+    display: block;
+    height: 100%;
+    opacity: 0;
+    padding: 10px 8px 10px 16px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: $sidenav-width;
+    z-index: 20;
+    -webkit-backface-visibility: hidden;
+    @include transform(translateX($sidenav-width));
+
+    ul {
+        margin: 0 0 15px;
+    }
+
+    a {
+        color: $colour-blue-dark;
+        display: block;
+        padding: 5px 10px 5px 0;
+        position: relative;
+
+        &:after {
+            content: ">";
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 4px;
+        }
+    }
+
+    .no-csstransforms & {
+        right: -$sidenav-width;
+    }
+
+    @include respond-min($cols-2) {
+        display: none;
+    }
+}
+
+@include respond-max($cols-2) {
+    #nav-open:target .navbar--main,
+    #nav-open:target .content,
+    .is-nav-open .navbar--main,
+    .is-nav-open .content {
+        @include transform(translateX(-$sidenav-width));
+
+        .no-csstransforms & {
+            right: 0;
+        }
+    }
+
+    .is-nav-open .page--home {
+        background-position: -$sidenav-width top;
+    }
+
+    #nav-open:target .nav-main-mobile,
+    .is-nav-open .nav-main-mobile {
+        @include transform(translateX(0));
+
+        .no-csstransforms & {
+            right: -$sidenav-width;
+        }
+    }
+
+    #nav-open:target .nav-main-mobile,
+    .is-nav-visible .nav-main-mobile {
+        opacity: 1;
+    }
+}
