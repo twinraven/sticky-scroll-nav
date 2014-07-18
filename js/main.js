@@ -7,6 +7,7 @@
         },
         scrollPos = 0,
         scrollDirection = undefined,
+        scrollDiff = undefined,
         lastDirection = undefined,
         isNavAnimating = false,
         navFadeTimeout,
@@ -61,8 +62,11 @@
                 dom.$nav.removeClass('is-at-top no-trans');
             }
 
+            scrollDiff = lastPos - scrollPos;
+
             if (lastPos > scrollPos) {
                 scrollDirection = -1;
+
             } else if (lastPos < scrollPos) {
                 scrollDirection = 1;
             } else {
@@ -70,7 +74,7 @@
             }
 
             if (!isNavAnimating) {
-                if (scrollDirection === -1 && !dom.$nav.hasClass('is-down')) {
+                if (scrollDirection === -1 && !dom.$nav.hasClass('is-down') && scrollDiff > 10) {
                     isNavAnimating = true;
                     noAnim = false;
 
